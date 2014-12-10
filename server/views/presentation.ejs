@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Standard Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+	<!-- Site Properities -->
+	<title>Evan</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/bootflat.css">
+	
+	<link rel="stylesheet" href="/style.css">
+
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+</head>
+
+<body>
+	<nav class="navbar" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar">
+				<button type="button" class="btn btn-success navbar-btn">Open slideshow</button>
+				<p id="slide" class="navbar-text">Current slide: 0/0</p>
+				<!--
+				<form class="navbar-form navbar-right">
+					<div class="form-search">
+						<input type="text" class="form-control" placeholder="Username">
+						<input type="password" class="form-control" placeholder="Password">
+						<button type="button" class="btn btn-success">Submit</button>
+					</div>
+				</form> 
+				-->
+			</div>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<div class="row">
+
+			<div class="col-xs-6">
+				<div id="chart">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h3 class="panel-title">Understanding chart</h3>
+						</div>
+						<div class="panel-body">
+							<div id="line_chart_div"></div>
+						</div>
+					</div>
+					
+				</div>
+				<div id="ask">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h3 class="panel-title">Ask question</h3>
+							<button type="button" class="close" id="panel-back">&lt;&lt;</button>
+						</div>
+						<div id="ask-form" class="panel-body">
+							<button data-number="2" type="button" class="btn btn-default btn-block">Two answer question</button>
+							<button data-number="3" type="button" class="btn btn-default btn-block">Three answer question</button>
+							<button data-number="4" type="button" class="btn btn-default btn-block">Four answer question</button>
+						</div>
+						<div id="ask-results" class="panel-body">
+							<div id="col_chart_div"></div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div id="questions" class="col-xs-6">
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+	<!-- Bootflat's JS files.-->
+	<script src="/js/icheck.min.js"></script>
+	<script src="/js/jquery.fs.selecter.min.js"></script>
+	<script src="/js/jquery.fs.stepper.min.js"></script>
+
+	<script src="https://www.google.com/jsapi"></script>
+
+	<script src="/js/charts.js"></script>
+
+ 	<script src="/socket.io/socket.io.js"></script>
+	<script src="/js/app.js"></script>
+	
+</body>
+</html>

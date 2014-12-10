@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['annotationchart']}]}"></script>
+    <script type='text/javascript'>
+		google.load("visualization", "1", {'packages':['annotationchart']});
+		google.setOnLoadCallback(initAnnotationChart);
+		
+		var annotation_max_data_points = 100;
+		
+		var annotation_data;
+		var annotation_options;
+		var annotation_chart;
+		
+		//asdasd
+		var last_val = 50;
+		
+		function initAnnotationChart() {
+			annotation_data = new google.visualization.DataTable();
+			annotation_data.addColumn('datetime', 'Time');
+			annotation_data.addColumn('number', 'Understanding');
+			annotation_data.addColumn('string', 'Annotation title');
+			annotation_data.addColumn('string', 'Annotation text');
+			annotation_options = {
+				displayAnnotations: true,
+				displayRangeSelector: false,
+				//legend: {
+				//	position: 'none'
+				//}
+				min: 0,
+				max: 100,
+			}
+			annotation_chart = new google.visualization.AnnotationChart(document.getElementById('chart_div'));
+			drawAnnotationChart();
+			
+			setInterval(function() {updateAnnotationData(new Date(), nextVal())}, 3000);
+		};
+		function nextVal() {
+			last_val = last_val + Math.floor((Math.random() * 21)) - 10;
+			return last_val;
+		}
+		function drawAnnotationChart() {
+			annotation_chart.draw(annotation_data, annotation_options);
+			annotation_chart.setVisibleChartRange(null, null);
+		}
+		
+		function updateAnnotationData(date, value, annotation_title, annotation_text) {
+			var new_row = [date, value, annotation_title, annotation_text];
+			annotation_data.addRow(new_row);
+			
+			var num_rows = annotation_data.getNumberOfRows();
+			if (num_rows > annotation_max_data_points) {
+				var to_remove = num_rows - annotation_max_data_points;
+				annotation_data.removeRows(0, to_remove);
+			}
+			drawAnnotationChart();
+		}
+		
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+	<button onclick="updateAnnotationData(new Date(), 50, 'S1', 'slide 1');">1</button>
+	<button onclick="updateAnnotationData(new Date(), 100, 'S2', 'slide 2');">2</button>
+	<button onclick="updateAnnotationData(new Date(), 0, 'Q1', 'question 1');">3</button>
+	<button onclick="updateAnnotationData(new Date(), 25, undefined, undefined);">4</button>
+	<button onclick="updateAnnotationData(new Date(), 75, undefined, undefined);">5</button>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<% include html1 %>
+  <% include accountbar %>
+
+	<form action="/presentation/new" method="post" class="form-horizontal" autocomplete="off">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Nova Soba!</legend>
+<br>
+
+    
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="iIme">Ime sobe</label>  
+  <div class="col-md-5">
+  <input id="iIme" name="ime" type="text" placeholder="Ime" class="form-control input-md" required="">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="iIme">Sifra sobe</label>  
+  <div class="col-md-5">
+  <input id="iSifra" name="sifra" type="password" placeholder="Sifra" class="form-control input-md" required="">
+  </div>
+</div>
+
+
+
+    </div>
+
+
+
+</fieldset>
+    <button type="submit" class="btn btn-default btn-lg" id='publishDrawing'>PUBLISH!</button>
+
+</form>
+
+    
+<%include html1end %>

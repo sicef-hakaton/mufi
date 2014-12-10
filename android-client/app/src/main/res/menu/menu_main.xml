@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.mufp.hackaton.evan_android.activities.MainActivity">
+
+    <item android:id="@+id/action_new_question" android:title="@string/new_question"
+        android:orderInCategory="100" android:showAsAction="never" />
+    <item android:id="@+id/test_pool_dialog" android:title="Test pool"
+        android:orderInCategory="100" android:showAsAction="never" />
+</menu>

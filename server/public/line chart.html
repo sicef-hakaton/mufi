@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+		google.load("visualization", "1", {packages:["corechart"]});
+		google.setOnLoadCallback(initLineChart);
+
+		var line_max_data_points = 50;
+			  
+		var line_data;
+		var line_options;
+		var line_chart;
+		
+		//asdasd
+		var last_val = 50;
+		
+		function initLineChart() {
+			line_data = new google.visualization.DataTable();
+			line_data.addColumn('datetime', 'Time');
+			line_data.addColumn('number', 'Understanding');
+			line_options = {
+				title: 'Understanding over time',
+				//curveType: 'function',
+				vAxis: {
+					minValue:0, 
+					maxValue:100
+				},
+				animation: {
+					duration: 1000,
+					easing: 'in'
+				},
+				legend: {
+					position: 'none'
+				}
+			}
+			line_chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+			drawLineChart();
+			
+			setInterval(function() {updateLineData(new Date(), nextVal())}, 3000);
+		};
+		function nextVal() {
+			last_val = last_val + Math.floor((Math.random() * 21)) - 10;
+			return last_val;
+		}
+		function drawLineChart() {
+			line_chart.draw(line_data, line_options);
+		}
+		
+		function updateLineData(date, value) {
+			var new_row = [date, value];
+			line_data.addRow(new_row);
+			
+			var num_rows = line_data.getNumberOfRows();
+			if (num_rows > line_max_data_points) {
+				var to_remove = num_rows - line_max_data_points;
+				line_data.removeRows(0, to_remove);
+			}
+			drawLineChart();
+		}
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+	<button onclick="updateLineData(new Date(), 50);">1</button>
+	<button onclick="updateLineData(new Date(), 100);">2</button>
+	<button onclick="updateLineData(new Date(), 0);">3</button>
+	<button onclick="updateLineData(new Date(), 25);">4</button>
+	<button onclick="updateLineData(new Date(), 75);">5</button>
+  </body>
+</html>
