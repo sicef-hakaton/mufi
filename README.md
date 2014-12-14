@@ -1,5 +1,5 @@
 # Aplikacija EVAN
-## Tim „MUFI”
+## Tim „MUFI” - osvojeno 3. mesto
 
 Aplikacija nastala na [SICEF hakatonu](http://sicef.info/hakaton/), 24-časovnom takmičenju u programiranju održanom na Elektronskom fakultetu u Nišu, 22. i 23. novembra 2014. godine. 
 
